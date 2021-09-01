@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <string.h>
+// #include <sys/types.h>
+// #include <sys/wait.h>
 
 int			g_exit_code = 0;
 
@@ -76,7 +76,7 @@ int			main(int ac, char **av, char **env)
 
 	next_pipe[0] = -1;
 	next_pipe[1] = -1;
-	while (end_tok != '\0' || (end_tok == ';' && av[cmd_pos] != 0))
+	while (end_tok != '\0')
 	{
 		cmd_pos = cmd_pos + get_next_cmd(&cmd, &end_tok, cmd_pos, av) + 1;
 		if (!cmd[0])
